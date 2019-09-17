@@ -90,13 +90,6 @@ class Util {
                 Listas.setJugadores(new Jugador(i+1, nombre, Listas.getPersonajes().get(personajeID-1).getHp(), Listas.getPersonajes().get(personajeID-1).getMaxDMG(), Listas.getPersonajes().get(personajeID-1).getMinDMG(), true));
             }
             System.out.printf("--> Cantidad de Jugadores ingresados: %d <--\n\n\n" , Listas.getJugadores().size());
-            for (Jugador objecto: Listas.getJugadores()) {
-                System.out.println(objecto.getId());
-                System.out.println(objecto.getNombre());
-                System.out.println(objecto.getHp());
-                System.out.println(objecto.getMinDMG());
-                System.out.println(objecto.getMaxDMG());
-            }
         }catch (Exception e) {
             System.out.println("Error en el proceso de setup jugador.");
         }
