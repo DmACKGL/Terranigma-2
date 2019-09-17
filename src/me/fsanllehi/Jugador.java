@@ -1,17 +1,20 @@
 package me.fsanllehi;
 
-import java.util.ArrayList;
-
 public class Jugador {
     private int id;
     private String Nombre;
-    private int personajeID;
-    public static ArrayList<Jugador> Jugadores = new ArrayList<>();
+    private int hp;
+    private int maxDMG;
+    private int minDMG;
+    private boolean live;
 
-    public Jugador(int id, String nombre, int personajeID) {
+    public Jugador(int id, String nombre, int hp, int maxDMG, int minDMG, boolean live) {
         this.id = id;
         Nombre = nombre;
-        this.personajeID = personajeID;
+        this.hp = hp;
+        this.maxDMG = maxDMG;
+        this.minDMG = minDMG;
+        this.live = live;
     }
 
     public int getId() {
@@ -30,11 +33,38 @@ public class Jugador {
         Nombre = nombre;
     }
 
-    public int getPersonajeID() {
-        return personajeID;
+    public int getHp() {
+        return hp;
     }
 
-    public void setPersonajeID(int personajeID) {
-        this.personajeID = personajeID;
+    public void setHp(int hp) {
+        this.hp = hp;
     }
+
+    public int getMaxDMG() {
+        return maxDMG;
+    }
+
+    public void setMaxDMG(int maxDMG) {
+        this.maxDMG = maxDMG;
+    }
+
+    public int getMinDMG() {
+        return minDMG;
+    }
+
+    public void setMinDMG(int minDMG) {
+        this.minDMG = minDMG;
+    }
+
+    public boolean isLive() {
+        return live;
+    }
+
+    public void setLive(boolean live) {
+        this.live = live;
+    }
+
+
+
 }

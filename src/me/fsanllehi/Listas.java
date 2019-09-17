@@ -6,7 +6,6 @@ public class Listas {
     private static ArrayList<Personaje> Personajes = new ArrayList<>();
     private static ArrayList<Jugador> Jugadores  = new ArrayList<>();
     private static ArrayList<Enemigos> Enemigos = new ArrayList<>();
-    private static ArrayList<Armas> Armas = new ArrayList<>();
 
     public static ArrayList<Personaje> getPersonajes() {
         return Personajes;
@@ -32,11 +31,4 @@ public class Listas {
         Enemigos.add(enemigos);
     }
 
-    public static ArrayList<me.fsanllehi.Armas> getArmas() {
-        return Armas;
-    }
-
-    public static void setArmas(Armas armas) {
-        Armas.add(armas);
-    }
 }
