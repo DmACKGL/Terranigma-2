@@ -39,8 +39,8 @@ class Util {
          */
         try{
             System.out.println("Populando lista de personajes...");
-            Listas.setPersonajes(new Personaje(1, "Ark", "Un joven lleno de energía, no puede parar. Vive en la casa mas grande de Crysta junto al Sabio. Pasa su mayor tiempo junto a Naomi. También suele hacer alguna gamberrada y nunca niega una nueva aventura.", 10, 20,500));
-            Listas.setPersonajes(new Personaje(2, "Naomi", "Naomi es la mejor tejedora de Krysta. También es la mejor amiga de Ark. Cuando este se mete en problemas, ella le ayuda a solucionarlos. Mantienen una relación muy estrecha.", 10, 20,250));
+            Listas.setPersonajes(new Personaje(1, "Ark", "Un joven lleno de energía, no puede parar. Vive en la casa mas grande de Crysta junto al Sabio. Pasa su mayor tiempo junto a Naomi. También suele hacer alguna gamberrada y nunca niega una nueva aventura.", 50, 100,500));
+            Listas.setPersonajes(new Personaje(2, "Naomi", "Naomi es la mejor tejedora de Krysta. También es la mejor amiga de Ark. Cuando este se mete en problemas, ella le ayuda a solucionarlos. Mantienen una relación muy estrecha.", 10, 50,250));
             Listas.setPersonajes(new Personaje(3, "El Sabio", "El Sabio es el hombre mas anciano del pueblo de Krysta. Adoptó a Ark cuando era pequeño cuando este perdió a sus padres. Es el hombre mas respetado del pueblo.", 10 ,20,500));
             Listas.setPersonajes(new Personaje(4, "Yomi", "Extraña criatura que dormía en una caja sellada. Tiene grandes conocimientos del mundo. Se sirve de sus pequeñas alas para mantenerse al vuelo.", 10, 20,700));
             Listas.setPersonajes(new Personaje(5, "Mei-Lin", "Mei-Lin, es la nieta del sabio anciano Ma-Yo. Perdió a sus padres cuando era pequeña. Tiene la habilidad de proyectar los sentimientos de cada persona. Por eso, ella proyecto una vida con sus padres en un pueblo fantasma.", 10 , 20,100));
@@ -102,18 +102,37 @@ class Util {
         }
     }
 
-    static void limpiarCMD(){
+    public static void limpiarCMD(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
-    private static int randomEntre(int uno, int dos){
-        int randomInt = ThreadLocalRandom.current().nextInt(uno, dos+1); //+1 para que de hasta el numero, de lo contrario restara uno
-        return randomInt;
+    public static int randomEntre(int uno, int dos){
+        return ThreadLocalRandom.current().nextInt(uno, dos+1);
     }
-    private int ataque(int hp, int min, int max){
-        int finhp = hp-randomEntre(min, max);
-        return finhp;
+    public static int ataque(int hp, int min, int max){
+        return hp-randomEntre(min, max);
+    }
+
+    public static boolean checkLiveE(){
+        int check = 0;
+        for (Enemigos enemigo: Listas.getEnemigos()) {
+            if (enemigo.isLive()){
+                check = check+1;
+            }
+        }
+
+        return check == 0;
+    }
+
+    public static boolean checkLiveP(){
+        int check = 0;
+        for (Jugador jugador: Listas.getJugadores()) {
+            if (jugador.isLive()){
+                check = check+1;
+            }
+        }
+        return check == 0;
     }
 
 }

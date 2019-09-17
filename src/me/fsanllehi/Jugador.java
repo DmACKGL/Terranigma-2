@@ -65,6 +65,4 @@ public class Jugador {
         this.live = live;
     }
 
-
-
 }
