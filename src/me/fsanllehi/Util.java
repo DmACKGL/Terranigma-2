@@ -81,7 +81,7 @@ class Util {
                 System.out.println();
                 System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------");
                 for(Personaje personaje: Listas.getPersonajes()){
-                    System.out.format("%s %5s %10s %10s %20s %50s", personaje.getId(), personaje.getHp(), personaje.getMaxDMG(), personaje.getMinDMG(), personaje.getNombre(), personaje.getDescripcion());
+                    System.out.format("%s %5s %10s %10s %20s %50s", personaje.getId(), personaje.getHp(), personaje.getMinDMG(), personaje.getMaxDMG(), personaje.getNombre(), personaje.getDescripcion());
                     System.out.println();
                 }
                 System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------");
