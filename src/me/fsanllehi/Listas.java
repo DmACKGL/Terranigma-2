@@ -3,9 +3,9 @@ package me.fsanllehi;
 import java.util.ArrayList;
 
 public class Listas {
-    private static ArrayList<Personaje> Personajes = new ArrayList<>();
-    private static ArrayList<Jugador> Jugadores  = new ArrayList<>();
-    private static ArrayList<Enemigos> Enemigos = new ArrayList<>();
+    static ArrayList<Personaje> Personajes = new ArrayList<>();
+    static ArrayList<Jugador> Jugadores  = new ArrayList<>();
+    static ArrayList<Enemigos> Enemigos = new ArrayList<>();
 
     public static ArrayList<Personaje> getPersonajes() {
         return Personajes;

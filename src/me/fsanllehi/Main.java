@@ -13,6 +13,7 @@ public class Main {
         System.out.println("\n\n\n\n¡COMIENZA EL JUEGO!\n\n\n\n");
         Scanner scan = new Scanner(System.in);
         while (true){
+            Util.saveGame();
             if (Util.checkLiveE()){
                 System.out.println("\n\nGanaron los Jugadores!");
                 break;
@@ -26,7 +27,7 @@ public class Main {
                 if (Util.checkLiveE()){
                     break;
                 }
-                System.out.printf("\n\n--> TURNO DEL JUGADOR N°%s <--\nVida actual: %sHP\n", jugador.getId(), jugador.getHp());
+                System.out.printf("\n\n--> TURNO DEL JUGADOR N°%s (%s) <--\nVida actual: %sHP\n", jugador.getId(), jugador.getNombre(), jugador.getHp());
                 System.out.println("--- Lista de enemigos ---");
                 for (Enemigos enemigo: Listas.getEnemigos()) {
                     if (enemigo.isLive()) {
@@ -38,7 +39,7 @@ public class Main {
                 System.out.println();
                 if (jugador.isLive()){
                     for (Enemigos enemigo: Listas.getEnemigos()) {
-                        System.out.printf("Turno del jugador N°%s para enemigo N°%s\n1) Atacar\n2) Pasar\nSeleccion: ", jugador.getId(), enemigo.getId());
+                        System.out.printf("Turno del jugador N°%s (%s) para enemigo N°%s\n1) Atacar\n2) Pasar\n3) Consultar Jugadores\n4) Consultar Enemigos\n5) Cambio HP Masivo\nSeleccion: ", jugador.getId(), jugador.getNombre(), enemigo.getId());
                         int seleccion = scan.nextInt();
                         if (seleccion == 1){
                             int ataque = Util.ataque(enemigo.getCurrentHP(), jugador.getMinDMG(), jugador.getMaxDMG());
@@ -51,6 +52,31 @@ public class Main {
                                 enemigo.setCurrentHP(ataque);
                             }
 
+                        }
+                        if (seleccion == 3){
+                            System.out.println("Ingresa el nombre del personaje a buscar: ");
+                            scan.nextLine();
+                            String nombre = scan.nextLine();
+                            Util.buscarNombre(jugador, nombre);
+                        }
+                        if (seleccion == 4){
+                            System.out.println("Ingresa el nombre del enemigo a buscar: ");
+                            scan.nextLine();
+                            String nombre = scan.nextLine();
+                            Util.buscarNombre(enemigo, nombre);
+                        }
+                        if (seleccion == 5){
+                            System.out.println("Cambio masivo de HP ¿A cuanto HP quieres cambiar?");
+                            int hp = scan.nextInt();
+                            System.out.println("¿A quienes quieres ejecutar esta accion?");
+                            System.out.println("1) Jugadores\n2) Enemigos");
+                            seleccion = scan.nextInt();
+                            if (seleccion == 1){
+                                Util.Masivo(jugador, hp);
+                            }
+                            if (seleccion == 2){
+                                Util.Masivo(enemigo, hp);
+                            }
                         }
                     }
                 }else{

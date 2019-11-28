@@ -3,14 +3,16 @@ package me.fsanllehi;
 public class Jugador {
     private int id;
     private String Nombre;
+    private String clase;
     private int hp;
     private int maxDMG;
     private int minDMG;
     private boolean live;
 
-    public Jugador(int id, String nombre, int hp, int maxDMG, int minDMG, boolean live) {
+    public Jugador(int id, String nombre, String clase, int hp, int maxDMG, int minDMG, boolean live) {
         this.id = id;
         Nombre = nombre;
+        this.clase = clase;
         this.hp = hp;
         this.maxDMG = maxDMG;
         this.minDMG = minDMG;
@@ -65,4 +67,11 @@ public class Jugador {
         this.live = live;
     }
 
+    public String getClase() {
+        return clase;
+    }
+
+    public void setClase(String clase) {
+        this.clase = clase;
+    }
 }
